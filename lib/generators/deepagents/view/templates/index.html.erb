@@ -1,0 +1,35 @@
+<%# DeepAgents %> <%= class_name %> <%# Index View %>
+<div class="deepagents-container">
+  <h1>Conversations</h1>
+  
+  <div class="deepagents-actions">
+    <%= link_to "New Conversation", new_#{file_name}_path, class: "deepagents-button" %>
+  </div>
+  
+  <div class="deepagents-conversations-list">
+    <% if @conversations.any? %>
+      <% @conversations.each do |conversation| %>
+        <div class="deepagents-conversation-card">
+          <h3><%= link_to conversation.title.presence || "Conversation ##{conversation.id}", #{file_name}_path(conversation) %></h3>
+          <div class="deepagents-conversation-meta">
+            <span class="deepagents-timestamp"><%= time_ago_in_words(conversation.created_at) %> ago</span>
+            <% if conversation.agent_name.present? %>
+              <span class="deepagents-agent-name"><%= conversation.agent_name %></span>
+            <% end %>
+          </div>
+          <div class="deepagents-conversation-preview">
+            <% if conversation.messages.any? %>
+              <%= truncate(conversation.messages.last.content, length: 100) %>
+            <% else %>
+              <em>No messages yet</em>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="deepagents-empty-state">
+        <p>No conversations yet. <%= link_to "Start a new conversation", new_#{file_name}_path %>.</p>
+      </div>
+    <% end %>
+  </div>
+</div>

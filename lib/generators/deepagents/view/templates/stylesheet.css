@@ -1,0 +1,397 @@
+/* DeepAgents <%= class_name %> Chat Stylesheet */
+
+.deepagents-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.deepagents-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.deepagents-actions {
+  margin-bottom: 20px;
+}
+
+.deepagents-button {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #4a6cf7;
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.deepagents-button:hover {
+  background-color: #3a5ce5;
+}
+
+.deepagents-button.secondary {
+  background-color: #e2e8f0;
+  color: #334155;
+}
+
+.deepagents-button.secondary:hover {
+  background-color: #cbd5e1;
+}
+
+.deepagents-conversations-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.deepagents-conversation-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 16px;
+  transition: box-shadow 0.2s ease;
+}
+
+.deepagents-conversation-card:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.deepagents-conversation-meta {
+  display: flex;
+  justify-content: space-between;
+  color: #64748b;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.deepagents-conversation-preview {
+  color: #64748b;
+  font-size: 14px;
+}
+
+.deepagents-conversation {
+  display: flex;
+  flex-direction: column;
+  height: 70vh;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.deepagents-messages {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+.deepagents-message {
+  display: flex;
+  margin-bottom: 16px;
+}
+
+.deepagents-message-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.deepagents-message.user .deepagents-message-avatar {
+  background-color: #4a6cf7;
+  color: white;
+}
+
+.deepagents-message.assistant .deepagents-message-avatar {
+  background-color: #10b981;
+  color: white;
+}
+
+.deepagents-message.system .deepagents-message-avatar {
+  background-color: #f59e0b;
+  color: white;
+}
+
+.deepagents-message.error .deepagents-message-avatar {
+  background-color: #ef4444;
+  color: white;
+}
+
+.deepagents-message-content {
+  flex-grow: 1;
+}
+
+.deepagents-message-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.deepagents-message-role {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.deepagents-message-timestamp {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.deepagents-message-body {
+  background-color: #f8fafc;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.deepagents-message.user .deepagents-message-body {
+  background-color: #eff6ff;
+}
+
+.deepagents-message.assistant .deepagents-message-body {
+  background-color: #f0fdf4;
+}
+
+.deepagents-message.system .deepagents-message-body {
+  background-color: #fef3c7;
+}
+
+.deepagents-message.error .deepagents-message-body {
+  background-color: #fee2e2;
+}
+
+.deepagents-input-container {
+  border-top: 1px solid #e2e8f0;
+  padding: 16px;
+  background-color: white;
+}
+
+.deepagents-form {
+  display: flex;
+  align-items: flex-end;
+}
+
+.deepagents-input {
+  flex-grow: 1;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 14px;
+  resize: none;
+  max-height: 150px;
+  margin-right: 8px;
+}
+
+.deepagents-input:focus {
+  outline: none;
+  border-color: #4a6cf7;
+}
+
+.deepagents-send-button {
+  padding: 8px 16px;
+  background-color: #4a6cf7;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.deepagents-send-button:hover {
+  background-color: #3a5ce5;
+}
+
+.deepagents-file-upload {
+  margin-right: 8px;
+}
+
+.deepagents-file-input {
+  display: none;
+}
+
+.deepagents-file-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background-color: #e2e8f0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.deepagents-file-label:hover {
+  background-color: #cbd5e1;
+}
+
+.deepagents-file-preview {
+  margin-top: 8px;
+}
+
+.deepagents-file-item {
+  display: flex;
+  align-items: center;
+  background-color: #f8fafc;
+  border-radius: 4px;
+  padding: 8px;
+  margin-top: 8px;
+}
+
+.deepagents-file-thumbnail {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-right: 8px;
+}
+
+.deepagents-file-info {
+  flex-grow: 1;
+  font-size: 14px;
+}
+
+.deepagents-file-remove {
+  background: none;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 0 8px;
+}
+
+.deepagents-file-remove:hover {
+  color: #ef4444;
+}
+
+.deepagents-files {
+  margin-top: 20px;
+}
+
+.deepagents-files-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.deepagents-file {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.deepagents-file-preview {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+}
+
+.deepagents-file-name {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.deepagents-file-timestamp {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.deepagents-file-download {
+  display: block;
+  text-align: center;
+  padding: 8px;
+  background-color: #4a6cf7;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.deepagents-file-download:hover {
+  background-color: #3a5ce5;
+}
+
+.deepagents-empty-state {
+  text-align: center;
+  padding: 40px 0;
+  color: #64748b;
+}
+
+.deepagents-form-group {
+  margin-bottom: 16px;
+}
+
+.deepagents-form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.deepagents-form-control {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.deepagents-form-control:focus {
+  outline: none;
+  border-color: #4a6cf7;
+}
+
+.deepagents-form-text {
+  display: block;
+  margin-top: 4px;
+  color: #64748b;
+  font-size: 12px;
+}
+
+.deepagents-form-actions {
+  margin-top: 24px;
+}
+
+.deepagents-error-messages {
+  color: #ef4444;
+  background-color: #fee2e2;
+  border: 1px solid #fecaca;
+  border-radius: 4px;
+  padding: 12px;
+  margin-bottom: 16px;
+}
+
+.deepagents-message.loading .deepagents-message-body {
+  position: relative;
+}
+
+.deepagents-message.loading .deepagents-message-body p {
+  display: flex;
+  align-items: center;
+}
+
+.deepagents-message.loading .deepagents-message-body p:after {
+  content: "...";
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+  animation: ellipsis 2s infinite;
+  width: 0;
+}
+
+@keyframes ellipsis {
+  from {
+    width: 0;
+  }
+  to {
+    width: 1.25em;
+  }
+}

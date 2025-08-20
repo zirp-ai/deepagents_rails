@@ -1,0 +1,10 @@
+<%# DeepAgents %> <%= class_name %> <%# Conversation Partial %>
+<% if conversation.messages.any? %>
+  <% conversation.messages.order(:created_at).each do |message| %>
+    <%= render partial: "message", locals: { message: message } %>
+  <% end %>
+<% else %>
+  <div class="deepagents-empty-state">
+    <p>No messages yet. Start the conversation by typing a message below.</p>
+  </div>
+<% end %>

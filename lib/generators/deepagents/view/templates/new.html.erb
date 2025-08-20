@@ -1,0 +1,10 @@
+<%# DeepAgents %> <%= class_name %> <%# New View %>
+<div class="deepagents-container">
+  <h1>New Conversation</h1>
+  
+  <div class="deepagents-actions">
+    <%= link_to "Back to Conversations", #{file_name.pluralize}_path, class: "deepagents-button secondary" %>
+  </div>
+  
+  <%= render "form", #{file_name}: @#{file_name} %>
+</div>

@@ -1,0 +1,33 @@
+<%# DeepAgents %> <%= class_name %> <%# Form Partial %>
+<%= form_with(model: #{file_name}, local: true, class: "deepagents-form") do |form| %>
+  <% if #{file_name}.errors.any? %>
+    <div class="deepagents-error-messages">
+      <h2><%= pluralize(#{file_name}.errors.count, "error") %> prohibited this conversation from being saved:</h2>
+      <ul>
+        <% #{file_name}.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="deepagents-form-group">
+    <%= form.label :title %>
+    <%= form.text_field :title, class: "deepagents-form-control" %>
+  </div>
+
+  <div class="deepagents-form-group">
+    <%= form.label :agent_name %>
+    <%= form.select :agent_name, DeepagentsRails.service.available_agents.map { |name| [name.titleize, name] }, { include_blank: "Default Agent" }, class: "deepagents-form-control" %>
+  </div>
+
+  <div class="deepagents-form-group">
+    <%= form.label :system_message, "System Instructions" %>
+    <%= form.text_area :system_message, class: "deepagents-form-control", rows: 3 %>
+    <small class="deepagents-form-text">Optional instructions to guide the agent's behavior</small>
+  </div>
+
+  <div class="deepagents-form-actions">
+    <%= form.submit "Create Conversation", class: "deepagents-button" %>
+  </div>
+<% end %>

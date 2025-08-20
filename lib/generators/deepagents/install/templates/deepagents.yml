@@ -1,0 +1,38 @@
+# DeepAgents Rails Configuration
+
+default: &default
+  # API key for your LLM provider (Claude or OpenAI)
+  # You can also set this via environment variable DEEPAGENTS_API_KEY
+  api_key: <%= ENV.fetch('DEEPAGENTS_API_KEY', nil) %>
+  
+  # LLM provider to use (claude or openai)
+  provider: <%= ENV.fetch('DEEPAGENTS_PROVIDER', 'claude') %>
+  
+  # Default model to use
+  model: <%= ENV.fetch('DEEPAGENTS_MODEL', 'claude-3-sonnet-20240229') %>
+  
+  # Default temperature for LLM requests (0.0 to 1.0)
+  temperature: <%= ENV.fetch('DEEPAGENTS_TEMPERATURE', '0.7') %>
+  
+  # Maximum tokens to generate in responses
+  max_tokens: <%= ENV.fetch('DEEPAGENTS_MAX_TOKENS', '4096') %>
+  
+  # Default tools available to all agents
+  default_tools:
+    - calculator
+    - file_system
+    - planning
+
+development:
+  <<: *default
+  log_requests: true
+
+test:
+  <<: *default
+  # Use mock model for testing
+  provider: mock
+  model: mock-model
+
+production:
+  <<: *default
+  log_requests: false
